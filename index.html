@@ -7,6 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="app.js"></script>
     <style>
+        .errorMessage,
         .emptyMessage {
             font-weight: bold;
             color: red;
@@ -32,6 +33,13 @@
 
         <!-- To Buy List -->
         <div class="col-md-6" ng-controller="ToBuyController as toBuy">
+            <form>
+                <input ng-model="toBuy.name"  type="text"  placeholder="item name" required>
+                <input ng-model="toBuy.quantity" type="number" placeholder="quantity" required>
+                <button ng-click="toBuy.addItem(toBuy.name, toBuy.quantity)" class="btn btn-primary">Add Item</button>
+                <div ng-show="toBuy.quantity <= 0" class="errorMessage">Quantity equal to or less than zero!</div>
+            </form>
+
             <h2>To Buy:</h2>
             <ul>
                 <li ng-repeat="item in toBuy.items">Buy {{item.quantity}} {{item.name}} <button ng-click="item.boughtItem($index)" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>

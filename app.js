@@ -9,6 +9,11 @@
         function ToBuyController(ShoppingListCheckOffService) {
             var toBuy = this;
             toBuy.items = ShoppingListCheckOffService.getToBuyList();
+            toBuy.addItem = function(name, quantity) {
+                if(name && quantity && quantity > 0) {
+                    ShoppingListCheckOffService.addItem(name, quantity);
+                }
+            }
         }
 
         function AlreadyBoughtController(ShoppingListCheckOffService) {
@@ -43,10 +48,14 @@
                 toBuyList.splice(itemId, 1);
             }
 
+            function addItem(name, quantity) {
+                toBuyList.push({name: name, quantity: quantity, boughtItem: boughtItem});
+            }
+
             return {
                 getToBuyList: getToBuyList,
                 getAlreadyBought: getAlreadyBought,
-                boughtItem: boughtItem
+                addItem: addItem
             }
         }
 
