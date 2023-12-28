@@ -38,7 +38,7 @@ Welcome to the Simple Shopping List Manager project! This user-friendly web appl
 ## Getting Started
 
 1. **Open the Webpage:**
-   - https://eduardoschoepf.github.io/module2-solution/
+   - https://eduardoschoepf.github.io/ShoppingListCheck/
 
 2. **Start Shopping!**
    - Begin managing your shopping list efficiently with this easy-to-use app.
